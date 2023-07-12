@@ -23,7 +23,7 @@ class MindARThree {
 
     this.scene = new THREE.Scene();
     this.cssScene = new THREE.Scene();
-    this.renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+    this.renderer = new THREE.WebGLRenderer({antialias: true, alpha: true, preserveDrawingBuffer: true});
     this.cssRenderer = new CSS3DRenderer({antialias: true });
     this.renderer.outputEncoding = THREE.sRGBEncoding;
     this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -76,7 +76,7 @@ class MindARThree {
   _startVideo() {
     return new Promise((resolve, reject) => {
       this.video = document.createElement('video');
-
+      this.video.id = "render-mind-video";
       this.video.setAttribute('autoplay', '');
       this.video.setAttribute('muted', '');
       this.video.setAttribute('playsinline', '');
